@@ -8,5 +8,9 @@ node{
     sh "${MAVEN_HOME}/bin/mvn package"
   
   }
+  
+  stage('Email Notification'){
+    mail bcc: '', body: 'Hello, buddy this is from Jenkins', cc: '', from: '', replyTo: '', subject: '', to: 'gashok13193@gmail.com'
+  }
    
 }
