@@ -3,7 +3,7 @@ node{
     git 'https://github.com/Ashok13193/my_jenkins.git'
  
   }
-  stgae('MAVEN BUILD'){
+  stage('MAVEN BUILD'){
     sh "mvn package"
   
   }
