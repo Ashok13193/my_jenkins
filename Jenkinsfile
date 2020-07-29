@@ -4,7 +4,8 @@ node{
  
   }
   stage('MAVEN BUILD'){
-    sh "mvn package"
+    def MAVEN_HOME =tool name: 'M3', type: 'maven'
+    sh "${MAVEN_HOME}/bin/mvn package"
   
   }
    
