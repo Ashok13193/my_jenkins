@@ -10,7 +10,7 @@ node{
   }
   
   stage('Email Notification'){
-    mail bcc: '', body: 'Hello, buddy this is from Jenkins', cc: '', from: '', replyTo: '', subject: '', to: 'gashok13193@gmail.com'
+    mail bcc: '', body: 'Hello, buddy this is from Jenkins', cc: '', from: '', replyTo: '', subject: 'Jenkins ALERT', to: 'gashok13193@gmail.com'
   }
    
 }
