@@ -1,9 +1,10 @@
 pipeline{
     agent any
     stages{
-        stage("GIT CHECkOUT")
-        steps{
-            git 'https://github.com/Ashok13193/my_jenkins/'
+        stage('GIT CHECKOUT'){
+            steps{
+                git 'https://github.com/Ashok13193/my_jenkins/'
+            }
         }
     }
 }
