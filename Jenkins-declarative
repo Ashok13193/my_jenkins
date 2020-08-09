@@ -1,9 +1,19 @@
 pipeline{
     agent any
+    
+    environment{
+        PATH="/opt/apache/bin:$PATH"
+    }
     stages{
         stage('GIT CHECKOUT'){
             steps{
                 git 'https://github.com/Ashok13193/my_jenkins'
+            }
+        }
+        stage("Naven Build"){
+            steps{
+                tool name: 'M3', type: 'maven'
+                sh "mvn clean package"
             }
         }
     }
