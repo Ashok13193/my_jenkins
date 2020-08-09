@@ -19,9 +19,9 @@ pipeline{
         }
         stage("Deploy to tomcat"){
            steps{
-                sshagent(['JenkinsTomcat']) {
+                sshagent(['Jenkinsdemo']) {
                  sh """
-                     scp -o StrictHostKeyChecking=no target/webapp.war osboxes@192.168.56.104:/opt/tomcat/webapps/ 
+                     scp -o StrictHostKeyChecking=no target/webapp.war osboxes@192.168.1.101:/opt/tomcat/webapps/ 
                  """                
 
                }
