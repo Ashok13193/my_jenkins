@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    
+
     environment{
         PATH="/opt/apache/bin:$PATH"
     }
@@ -10,11 +10,23 @@ pipeline{
                 git 'https://github.com/Ashok13193/my_jenkins'
             }
         }
-        stage("Naven Build"){
+        stage("Maven Build"){
             steps{
                 tool name: 'M3', type: 'maven'
                 sh "mvn clean package"
+                sh "mv target/*.war  target/webapp.war"
             }
+        }
+        stage("Deploy to tomcat"){
+           steps{
+                sshagent(['JenkinsTomcat']) {
+                 sh """
+                     scp -o StrictHostKeyChecking=no target/webapp.war osboxes@192.168.56.104:/opt/tomcat/webapps/ 
+                 """                
+
+               }
+           
+           }
         }
     }
 }
